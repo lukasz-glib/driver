@@ -31,8 +31,6 @@ public class Article {
     @Column(nullable = false, columnDefinition = "varchar(15000)")
     private String contentText;
 
-    private String videoContent;
-
     @ManyToMany
     private Set<Tag> tags;
 
