@@ -4,6 +4,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -42,16 +43,18 @@ public class Article {
     private Integer shares;
 
     @Column(nullable = false)
-    private LocalDateTime created;
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'hh:mm:ss")
+    private LocalDateTime created = LocalDateTime.now();
 
     @Column(nullable = false)
-    private LocalDateTime updated;
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'hh:mm:ss")
+    private LocalDateTime updated = LocalDateTime.now();
 
     @Column(nullable = false)
-    private Boolean isAdviceOfTheWeek;
+    private Boolean isAdviceOfTheWeek = Boolean.FALSE;
 
     @Column(nullable = false)
-    private Boolean hasQuiz;
+    private Boolean hasQuiz = Boolean.FALSE;
 
     @OneToMany
     private List<Quiz> quizQuestions = new ArrayList<>();

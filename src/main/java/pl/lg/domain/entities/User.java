@@ -32,7 +32,7 @@ public class User {
     private String email;
 
     @Column(nullable = false)
-    private Boolean active;
+    private Boolean active = Boolean.FALSE;
 
     @ManyToMany
     private Set<Role> roles = new HashSet<>();
