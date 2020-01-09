@@ -7,6 +7,8 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -50,4 +52,7 @@ public class Article {
 
     @Column(nullable = false)
     private Boolean hasQuiz;
+
+    @OneToMany
+    private List<Quiz> quizQuestions = new ArrayList<>();
 }

@@ -32,7 +32,4 @@ public class Quiz {
 
     @Column(nullable = false)
     private HashMap<Integer, Boolean> ifAnswerIsCorrect;
-
-
-
 }
