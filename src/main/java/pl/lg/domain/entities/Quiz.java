@@ -7,6 +7,7 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.HashMap;
+import java.util.List;
 
 @Getter
 @Setter
@@ -25,11 +26,11 @@ public class Quiz {
     private String question;
 
     @Column(nullable = false)
-    private HashMap<Integer, String> textAnswer;
+    private List<String> textAnswer;
 
     @Column(nullable = false)
-    private HashMap<Integer, String> pictureAnswer;
+    private List<String> pictureAnswer;
 
     @Column(nullable = false)
-    private HashMap<Integer, Boolean> ifAnswerIsCorrect;
+    private List<Boolean> ifAnswerIsCorrect;
 }
