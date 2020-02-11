@@ -6,6 +6,8 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @Getter
@@ -25,8 +27,10 @@ public class Quiz {
     private String question;
 
     @Column(nullable = false)
-    private List<String> textAnswer;
+    private HashMap<Integer, String> textAnswer;
 
     @Column(nullable = false)
-    private List<Boolean> ifAnswerIsCorrect;
+    private HashMap<Integer, Boolean> ifAnswerIsCorrect;
+
+    private HashMap<Integer, String> answerPictureContent;
 }

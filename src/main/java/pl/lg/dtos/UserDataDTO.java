@@ -13,6 +13,7 @@ public class UserDataDTO {
     private String username;
     @NotBlank @Email
     private String email;
+    @NotBlank
     private String password;
     private String repassword;
     private Boolean active;
