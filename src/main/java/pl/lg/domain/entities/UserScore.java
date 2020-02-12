@@ -20,7 +20,7 @@ public class UserScore {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+    @Column(columnDefinition = "int default 0")
     private Integer score;
 
     @OneToOne
