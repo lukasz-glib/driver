@@ -2,6 +2,7 @@ package pl.lg.services.impl;
 
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -42,5 +43,25 @@ public class DefaultUserService implements UserService {
         log.debug("Rejestracja nowego użytkownika: {}", user);
         userRepository.save(user);
         log.debug("Nowy użytkownik został zarejestrowany: {}", user);
+    }
+
+    @Override
+    public User getOne(Long id) {
+        return userRepository.getOne(id);
+    }
+
+    @Override
+    public Long getUserId() {
+        return userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getId();
+    }
+
+    @Override
+    public User getByUsername(String username) {
+        return userRepository.findByUsername(username);
+    }
+
+    @Override
+    public User getByEmail(String email) {
+        return userRepository.getByEmail(email);
     }
 }
