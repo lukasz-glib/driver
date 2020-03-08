@@ -1,5 +1,6 @@
 package pl.lg.controllers;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,4 +22,10 @@ public class UserController {
     public void processRegistration(UserDataDTO dataDTO) {
         userService.register(dataDTO);
     }
+
+    @GetMapping("/get-by-email")
+    public User getByEmail(String email){
+        return userService.getByEmail(email);
+    }
+
 }
